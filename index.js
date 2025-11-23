@@ -17,6 +17,7 @@ function getRandom() {
     
     let charSet = characters.slice(); // copy of the charraters array
 
+    //remove both nums and special characters
     if(numCheckbox.checked && specialCheckbox.checked){
         charSet.splice(52, 100)
     }
