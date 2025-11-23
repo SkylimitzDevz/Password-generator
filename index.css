@@ -10,7 +10,6 @@
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 div {
@@ -34,6 +33,11 @@ span {
     font-family: "poppins", sans-serif;
 }
 
+a{
+    width: 100%;
+    text-decoration: none;
+}
+
 /* ------ styling ------ */
 
 :root {
@@ -51,15 +55,19 @@ body {
     min-height: 100vh;
     padding: 10px;
     display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
 }
 
 .container {
     background: var(--dark);
-    height: 550px;
+    height: auto;
     max-width: 550px;
-    width: 100%;
-    margin: auto;
-    padding: 60px;
+    width: min(550px, 100%);
+    padding: 50px;
     border-radius: 10px;
 }
 
@@ -123,7 +131,8 @@ body {
     margin: 20px 0px;
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     gap: 10px;
 }
 
@@ -144,4 +153,62 @@ body {
 
 .checkbox-el:checked + .icon::before{
     content: url(icons/uncheck-icon.svg);
+}
+.btn-container{
+    margin-top: 50px;
+    max-width: 550px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.link-btn{
+    background: var(--cyan);
+    color: var(--white);
+    border: none;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 17px;
+    width: 100%;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.link-btn:hover{
+    transform: scale(1.05);
+}
+
+
+@media(max-width:500px){
+    .password-container{
+        flex-direction: column;
+    }
+
+    #generate-btn{
+        width: 100%;
+    }
+
+    .btn-container{
+        flex-direction: column;
+    }
+
+    /* reduce container padding and scale title on small screens */
+    .container{
+        padding: 50px;
+    }
+
+    .condition-container{
+        width: 100%;
+        max-width: 100%;
+        padding: 0 8px;
+    }
+
+    .title span{
+        font-size: 28px;
+    }
+
+    .title h1{
+        font-size: 28px;
+    }
 }
