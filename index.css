@@ -118,3 +118,30 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+.condition-container{
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    gap: 10px;
+}
+
+.condition{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.checkbox-el{
+    display: none;
+}
+
+.icon::before{
+    content: url(icons/check-icon.svg);
+}
+
+.checkbox-el:checked + .icon::before{
+    content: url(icons/uncheck-icon.svg);
+}
