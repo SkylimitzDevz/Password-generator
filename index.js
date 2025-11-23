@@ -8,21 +8,44 @@ const output1 = document.getElementById("out-1")
 const output2 = document.getElementById("out-2")
 const genBtn = document.getElementById("generate-btn")
 const charLimit = 15
+const specialCheckbox = document.getElementById("have-special")
+const numCheckbox = document.getElementById("have-num")
+
 
 
 function getRandom() {
+    
+    let charSet = characters.slice(); // copy of the charraters array
+
+    if(numCheckbox.checked && specialCheckbox.checked){
+        charSet.splice(52, 100)
+    }
+
+    // remove numbers
+    else if(numCheckbox.checked){
+        charSet.splice(52, 10)
+    }
+
+    //remove special characters
+    else if(specialCheckbox.checked){
+        charSet.splice(62, 29)
+    }
+
+    // password generator
     let result = ""
     for (let num = 0; num < charLimit; num++) {
-        let i = Math.floor(Math.random() * characters.length)
-        let random = characters[i]
+        let i = Math.floor(Math.random() * charSet.length)
+        let random = charSet[i]
         result += random
     }
     return result
 }
-
+ 
 function genPassword() {
     output1.innerText = getRandom()
     output2.innerText = getRandom()
 }
 
 genBtn.addEventListener("click", genPassword)
+
+
